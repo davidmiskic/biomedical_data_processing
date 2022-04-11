@@ -2,7 +2,7 @@ function MHdetector( record )
 % prepare filter
 threshold = 100;
 im = imread(record);
-sigma=min(size(im))*0.0025;
+sigma=5;
 filterdim = ceil(sigma*4*sqrt(2));
 kernel = fspecial('log', filterdim, sigma);
 kernel = kernel - mean(kernel(:));
@@ -82,4 +82,3 @@ figure;
   subplot(2,2,4);imshow(edge(im, 'log'));title('MATLAB auto image');
 
 saveas(gcf, name(1) + "out.png");
-  
